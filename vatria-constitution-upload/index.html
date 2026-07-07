@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The public constitution and laws of the Vatrian Federation.">
+<meta property="og:title" content="VATRIAN CONSTITUTION">
+<meta property="og:description" content="A clean public reference for Vatrian Federation members.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/vatria-flag.png">
+<title>VATRIAN CONSTITUTION</title>
+<link rel="icon" href="assets/vatria-flag.png">
+<style>
+:root {
+  --bg: #07111f;
+  --panel: #0d1b2f;
+  --panel-2: #10243d;
+  --text: #eaf3ff;
+  --muted: #aabbd0;
+  --border: rgba(255, 255, 255, .14);
+  --border-strong: rgba(255, 255, 255, .24);
+  --blue: #2389ff;
+  --gold: #ffc400;
+  --gold-2: #ffdd54;
+  --shadow: 0 24px 70px rgba(0, 0, 0, .34);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.58;
+  background:
+    radial-gradient(circle at 18% 4%, rgba(255, 196, 0, .16), transparent 28rem),
+    radial-gradient(circle at 84% 8%, rgba(35, 137, 255, .22), transparent 32rem),
+    linear-gradient(180deg, #061021 0%, #08182c 46%, #07111f 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 50;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  padding: .6rem .85rem;
+  color: #07111f;
+  background: var(--gold);
+  font-weight: 800;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.hero {
+  position: relative;
+  min-height: clamp(260px, 38vw, 430px);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(4, 12, 24, .94) 0%, rgba(4, 12, 24, .74) 38%, rgba(4, 12, 24, .34) 68%, rgba(4, 12, 24, .18) 100%),
+    url("assets/vatria-flag.png") center / cover no-repeat;
+  transform: scale(1.015);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 40%;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent, rgba(7, 17, 31, .92));
+}
+
+.hero-inner {
+  width: min(1180px, calc(100% - 2rem));
+  min-height: inherit;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  padding: 2.5rem 0;
+}
+
+h1 {
+  width: min(920px, 100%);
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 8.6rem);
+  line-height: .86;
+  letter-spacing: 0;
+  font-weight: 950;
+  text-transform: uppercase;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, .5);
+}
+
+.hero-line {
+  width: min(540px, 76%);
+  height: 5px;
+  margin-top: 1.25rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), rgba(255, 196, 0, .12));
+  box-shadow: 0 0 28px rgba(255, 196, 0, .32);
+}
+
+.site-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.3rem 0 3rem;
+  display: grid;
+  grid-template-columns: 286px minmax(0, 1fr);
+  gap: 1.15rem;
+}
+
+.toc {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: .95rem;
+  background: rgba(13, 27, 47, .78);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.toc-title {
+  margin: .1rem 0 .8rem;
+  color: var(--gold-2);
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.nav-list {
+  display: grid;
+  gap: .48rem;
+  max-height: calc(100vh - 7.4rem);
+  overflow: auto;
+  padding-right: .2rem;
+}
+
+.nav-list::-webkit-scrollbar {
+  width: .48rem;
+}
+
+.nav-list::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .18);
+}
+
+.nav-btn,
+.copy-article {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  background: rgba(255, 255, 255, .055);
+  cursor: pointer;
+  font-weight: 780;
+}
+
+.nav-btn {
+  width: 100%;
+  min-height: 42px;
+  padding: .58rem .68rem;
+  text-align: left;
+  font-size: .9rem;
+}
+
+.nav-btn:hover,
+.nav-btn:focus-visible,
+.nav-btn.is-active {
+  border-color: rgba(255, 196, 0, .78);
+  background: linear-gradient(135deg, rgba(255, 196, 0, .18), rgba(35, 137, 255, .12));
+  outline: none;
+}
+
+.content {
+  display: grid;
+  gap: 1rem;
+}
+
+.article-card {
+  scroll-margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(16, 36, 61, .96), rgba(10, 27, 49, .94));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.article-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.05rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  background:
+    linear-gradient(90deg, rgba(255, 196, 0, .14), transparent 36%),
+    rgba(255, 255, 255, .026);
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.24rem, 2.7vw, 1.95rem);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.copy-article {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: .48rem .72rem;
+  color: var(--gold-2);
+}
+
+.copy-article:hover,
+.copy-article:focus-visible {
+  border-color: rgba(255, 196, 0, .72);
+  background: rgba(255, 196, 0, .13);
+  outline: none;
+}
+
+details {
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .105);
+  background: rgba(255, 255, 255, .025);
+}
+
+details:last-child {
+  border-bottom: 0;
+}
+
+details[open] {
+  background: rgba(35, 137, 255, .08);
+}
+
+summary {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  padding: .86rem 1rem;
+  cursor: pointer;
+  color: #f4f9ff;
+  font-weight: 880;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: "+";
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 1.45rem;
+  height: 1.45rem;
+  margin-right: .65rem;
+  border: 1px solid rgba(255, 196, 0, .44);
+  border-radius: 999px;
+  color: var(--gold-2);
+  background: rgba(255, 196, 0, .1);
+  font-size: 1rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+details[open] summary::before {
+  content: "-";
+  color: #07111f;
+  background: var(--gold);
+}
+
+.clauses {
+  padding: 0 1.05rem 1.02rem 3.1rem;
+}
+
+.clauses p {
+  max-width: 78ch;
+  margin: .68rem 0;
+  padding-left: .78rem;
+  border-left: 3px solid rgba(255, 196, 0, .46);
+  color: #eaf3ff;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+  padding: 2rem 1rem 2.4rem;
+  background: rgba(3, 9, 18, .34);
+}
+
+.copy-status {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  z-index: 30;
+  transform: translateX(-50%) translateY(120%);
+  opacity: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: rgba(7, 17, 31, .94);
+  color: white;
+  padding: .66rem .9rem;
+  box-shadow: var(--shadow);
+  transition: opacity .18s ease, transform .18s ease;
+  pointer-events: none;
+}
+
+.copy-status.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 880px) {
+  .hero {
+    min-height: 310px;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(180deg, rgba(4, 12, 24, .74), rgba(4, 12, 24, .86)),
+      url("assets/vatria-flag.png") center / cover no-repeat;
+  }
+
+  .site-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .toc {
+    position: static;
+  }
+
+  .nav-list {
+    max-height: none;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    padding-right: 0;
+  }
+
+  .article-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .copy-article {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-inner,
+  .site-shell {
+    width: min(100% - 1rem, 1180px);
+  }
+
+  h1 {
+    font-size: clamp(2.65rem, 17vw, 4.8rem);
+  }
+
+  .article-title-row,
+  summary,
+  .clauses {
+    padding-left: .85rem;
+    padding-right: .85rem;
+  }
+
+  .clauses {
+    padding-left: .95rem;
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#constitution">Skip to constitution</a>
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>VATRIAN CONSTITUTION</h1>
+      <div class="hero-line" aria-hidden="true"></div>
+    </div>
+  </div>
+</header>
+<main class="site-shell" id="constitution">
+<nav class="toc" aria-label="Constitution articles"><h2 class="toc-title">Articles</h2><div class="nav-list">
+<button class="nav-btn" type="button" data-target="article-1">Article I. The Federation</button>
+<button class="nav-btn" type="button" data-target="article-2">Article II. Citizenship, Activity, and Voting</button>
+<button class="nav-btn" type="button" data-target="article-3">Article III. Provinces and the Council</button>
+<button class="nav-btn" type="button" data-target="article-4">Article IV. The Presidency</button>
+<button class="nav-btn" type="button" data-target="article-5">Article V. Laws, Decisions, and Vetoes</button>
+<button class="nav-btn" type="button" data-target="article-6">Article VI. Elections, Terms, and Succession</button>
+<button class="nav-btn" type="button" data-target="article-7">Article VII. Misconduct, Leaks, and Impeachment</button>
+<button class="nav-btn" type="button" data-target="article-8">Article VIII. Emergencies and Constitutional Amendments</button>
+<button class="nav-btn" type="button" data-target="article-9">Article IX. Final Principles</button>
+</div></nav><section class="content" id="content" aria-label="Vatrian Constitution">
+<article class="article-card" id="article-1">
+<div class="article-title-row"><h2>Article I. The Federation</h2><button class="copy-article" type="button">Copy Article</button></div>
+<details class="section" open><summary>A. &quot;The Vatrian Federation&quot;</summary><div class="clauses">
+<p>I. Vatria, officially the Vatrian Federation, is a federal nation made up of equal recognized provinces.</p>
+<p>II. The Federation shall be governed by an elected President, an elected Vice President, and the Vatrian Council.</p>
+<p>III. The President leads the national government, the Council represents the provinces, and this Constitution stands above both.</p>
+<p>IV. No citizen, province, official, or government body may hold authority above this Constitution.</p>
+</div></details>
+<details class="section"><summary>B. &quot;Purpose of Vatria&quot;</summary><div class="clauses">
+<p>I. The purpose of Vatria is to protect its citizens, preserve its provinces, maintain order, defend its territory, and promote cooperation between all parts of the Federation.</p>
+<p>II. The Federation shall act in the common interest of Vatria while respecting the identity and local authority of each province.</p>
+<p>III. The government of Vatria shall serve the Federation, not rule above it.</p>
+</div></details>
+<details class="section"><summary>C. &quot;Federal Unity&quot;</summary><div class="clauses">
+<p>I. All recognized provinces are equal members of the Federation.</p>
+<p>II. No province shall receive greater federal power because of size, wealth, age, population, military strength, or importance.</p>
+<p>III. The Federation may not remove the rights, identity, or territory of a province except by lawful process.</p>
+</div></details>
+</article>
+<article class="article-card" id="article-2">
+<div class="article-title-row"><h2>Article II. Citizenship, Activity, and Voting</h2><button class="copy-article" type="button">Copy Article</button></div>
+<details class="section"><summary>A. &quot;Citizenship&quot;</summary><div class="clauses">
+<p>I. A citizen of Vatria is any person officially recognized as a member of the Vatrian Federation.</p>
+<p>II. Citizens may participate in national politics according to this Constitution and federal law.</p>
+<p>III. Citizenship may not be removed secretly, unfairly, or for personal reasons.</p>
+</div></details>
+<details class="section"><summary>B. &quot;Active Status&quot;</summary><div class="clauses">
+<p>I. A citizen is active if they have joined the server within the last two months.</p>
+<p>II. A citizen who has not joined the server for two months is inactive until they return.</p>
+<p>III. Inactive citizens keep their citizenship but temporarily lose voting rights.</p>
+<p>IV. A citizen, official, or Council member may avoid inactive status by publicly declaring a temporary absence.</p>
+</div></details>
+<details class="section"><summary>C. &quot;Voting Rights&quot;</summary><div class="clauses">
+<p>I. Only active citizens may vote in presidential elections.</p>
+<p>II. Only active Council members may vote in Council matters.</p>
+<p>III. Voting totals shall be based on active eligible voters, not on all historical citizens or former officials.</p>
+<p>IV. Each active citizen has one vote in presidential elections.</p>
+<p>V. No person may vote using another person’s account, name, or authority.</p>
+</div></details>
+</article>
+<article class="article-card" id="article-3">
+<div class="article-title-row"><h2>Article III. Provinces and the Council</h2><button class="copy-article" type="button">Copy Article</button></div>
+<details class="section"><summary>A. &quot;Recognized Provinces&quot;</summary><div class="clauses">
+<p>I. A province is a territory, city, region, or settlement officially recognized as part of Vatria.</p>
+<p>II. A province must be recognized by the Council before receiving a Council seat.</p>
+<p>III. A province may not be created only to gain extra political power.</p>
+</div></details>
+<details class="section"><summary>B. &quot;Council Membership&quot;</summary><div class="clauses">
+<p>I. The Vatrian Council is made up of the leaders or official representatives of recognized provinces.</p>
+<p>II. Each recognized province receives one Council seat.</p>
+<p>III. Each Council seat has one vote.</p>
+<p>IV. A person may not hold more than one Council vote, even if they lead multiple provinces.</p>
+<p>V. If a province has multiple leaders, it must choose one official Council representative.</p>
+</div></details>
+<details class="section"><summary>C. &quot;Powers of the Council&quot;</summary><div class="clauses">
+<p>I. The Council may pass federal laws.</p>
+<p>II. The Council may approve or reject major presidential decisions.</p>
+<p>III. The Council may veto presidential decisions.</p>
+<p>IV. The Council may recognize provinces, approve treaties, approve wars, review emergencies, and amend this Constitution.</p>
+<p>V. The Council may investigate serious misconduct by federal officials.</p>
+</div></details>
+<details class="section"><summary>D. &quot;Limits of the Council&quot;</summary><div class="clauses">
+<p>I. The Council may not cancel presidential elections.</p>
+<p>II. The Council may not remove the President except through succession, resignation, inactivity, or impeachment.</p>
+<p>III. The Council may not give one province more Council votes than another.</p>
+<p>IV. The Council may not punish a citizen, official, or province only for disagreeing with the majority.</p>
+</div></details>
+</article>
+<article class="article-card" id="article-4">
+<div class="article-title-row"><h2>Article IV. The Presidency</h2><button class="copy-article" type="button">Copy Article</button></div>
+<details class="section"><summary>A. &quot;The President&quot;</summary><div class="clauses">
+<p>I. The President is the head of government of the Vatrian Federation.</p>
+<p>II. The President represents Vatria in national, foreign, diplomatic, and public matters.</p>
+<p>III. The President is responsible for leading the Federation, carrying out federal law, and protecting the interests of Vatria.</p>
+<p>IV. The President may also be a Council member if they lead a recognized province, but they still receive only one Council vote.</p>
+</div></details>
+<details class="section"><summary>B. &quot;The Vice President&quot;</summary><div class="clauses">
+<p>I. The Vice President assists the President and acts as the second-highest executive official of Vatria.</p>
+<p>II. The Vice President may represent Vatria when the President is absent or unable to act.</p>
+<p>III. If the Presidency becomes vacant, the Vice President becomes President.</p>
+<p>IV. The Vice President is bound by the same constitutional limits as the President.</p>
+</div></details>
+<details class="section"><summary>C. &quot;Presidential Authority&quot;</summary><div class="clauses">
+<p>I. The President may make ordinary executive decisions needed for the daily operation of Vatria.</p>
+<p>II. Ordinary executive decisions include announcements, organization, project coordination, minor diplomacy, and temporary appointments.</p>
+<p>III. The President may propose laws, treaties, alliances, wars, national projects, and constitutional amendments.</p>
+<p>IV. Major national decisions require Council approval before becoming official.</p>
+</div></details>
+<details class="section"><summary>D. &quot;Limits of Presidential Power&quot;</summary><div class="clauses">
+<p>I. The President may not change this Constitution by personal order.</p>
+<p>II. The President may not cancel, delay, or control presidential elections.</p>
+<p>III. The President may not ignore a lawful Council veto.</p>
+<p>IV. The President may not declare war, give away territory, expel provinces, create binding alliances, or make major foreign commitments without Council approval.</p>
+<p>V. The President may not punish citizens, officials, or provinces for lawful disagreement.</p>
+</div></details>
+</article>
+<article class="article-card" id="article-5">
+<div class="article-title-row"><h2>Article V. Laws, Decisions, and Vetoes</h2><button class="copy-article" type="button">Copy Article</button></div>
+<details class="section"><summary>A. &quot;Types of Decisions&quot;</summary><div class="clauses">
+<p>I. Ordinary executive decisions may be made by the President without prior Council approval.</p>
+<p>II. Major national decisions require approval from more than half of active Council votes.</p>
+<p>III. Urgent decisions may be made immediately by the President if waiting would seriously harm Vatria, but they must be reviewed by the Council afterward.</p>
+<p>IV. Constitutional amendments require at least 60% support from active Council votes.</p>
+</div></details>
+<details class="section"><summary>B. &quot;Council Laws&quot;</summary><div class="clauses">
+<p>I. The Council may pass ordinary federal laws with more than half of active Council votes.</p>
+<p>II. Federal laws apply to all of Vatria unless the law states otherwise.</p>
+<p>III. A Council law may not contradict this Constitution.</p>
+</div></details>
+<details class="section"><summary>C. &quot;Council Vetoes&quot;</summary><div class="clauses">
+<p>I. The Council may veto a presidential decision if at least 40% of active Council votes oppose it.</p>
+<p>II. A veto cancels the presidential decision and prevents it from being enforced.</p>
+<p>III. The President may propose a revised version of a vetoed decision.</p>
+<p>IV. Ignoring a lawful veto is abuse of power.</p>
+</div></details>
+<details class="section"><summary>D. &quot;Voting Procedure&quot;</summary><div class="clauses">
+<p>I. Council votes may be held by Discord poll, written vote, in-game meeting, or another recognized method.</p>
+<p>II. Votes must be clear, recorded, and reasonably accessible to active Council members.</p>
+<p>III. Ordinary Council votes should remain open for at least 24 hours unless the matter is urgent.</p>
+<p>IV. Constitutional amendment votes should remain open for at least 48 hours.</p>
+<p>V. A tied vote fails unless this Constitution or federal law states otherwise.</p>
+</div></details>
+</article>
+<article class="article-card" id="article-6">
+<div class="article-title-row"><h2>Article VI. Elections, Terms, and Succession</h2><button class="copy-article" type="button">Copy Article</button></div>
+<details class="section"><summary>A. &quot;Presidential Elections&quot;</summary><div class="clauses">
+<p>I. Presidential elections shall be held every December.</p>
+<p>II. The election shall choose both a President and a Vice President.</p>
+<p>III. Presidential and vice-presidential candidates shall run together as one ticket.</p>
+<p>IV. All active citizens may vote.</p>
+<p>V. The ticket with the most valid votes wins.</p>
+</div></details>
+<details class="section"><summary>B. &quot;Election Rules&quot;</summary><div class="clauses">
+<p>I. Each active citizen has one vote.</p>
+<p>II. No person may vote more than once.</p>
+<p>III. No person may vote using another person’s identity.</p>
+<p>IV. No candidate or official may use threats, bribery, fraud, or vote manipulation.</p>
+<p>V. If two or more tickets tie for first place, a runoff election shall be held between the tied tickets.</p>
+</div></details>
+<details class="section"><summary>C. &quot;Term of Office&quot;</summary><div class="clauses">
+<p>I. The President and Vice President serve until the next elected President and Vice President take office.</p>
+<p>II. No President or Vice President may cancel the December election.</p>
+<p>III. A President or Vice President may resign by publicly announcing their resignation.</p>
+</div></details>
+<details class="section"><summary>D. &quot;Succession&quot;</summary><div class="clauses">
+<p>I. If the President resigns, is removed, leaves Vatria, or abandons office, the Vice President becomes President.</p>
+<p>II. If both the President and Vice President are unable to serve, the Council shall choose an Acting President.</p>
+<p>III. If more than two months remain before the next December election, the Council may call a special election.</p>
+<p>IV. If less than two months remain before the next December election, the Acting President may finish the term.</p>
+</div></details>
+<details class="section"><summary>E. &quot;Abandonment of Office&quot;</summary><div class="clauses">
+<p>I. The President or Vice President abandons office if they do not join the server for two months without an official absence.</p>
+<p>II. Abandonment of office must be confirmed by the Council.</p>
+<p>III. A former official who returns after abandonment does not automatically regain office.</p>
+</div></details>
+</article>
+<article class="article-card" id="article-7">
+<div class="article-title-row"><h2>Article VII. Misconduct, Leaks, and Impeachment</h2><button class="copy-article" type="button">Copy Article</button></div>
+<details class="section"><summary>A. &quot;Official Misconduct&quot;</summary><div class="clauses">
+<p>I. Officials of Vatria must act in good faith and use their power for the Federation, not for personal control.</p>
+<p>II. Abuse of power, corruption, sabotage, election fraud, treason, serious dishonesty, or violation of this Constitution may be punished by law.</p>
+<p>III. No official may create fake provinces, fake votes, fake emergencies, or fake inactivity to gain power.</p>
+</div></details>
+<details class="section"><summary>B. &quot;Information and Leaks&quot;</summary><div class="clauses">
+<p>I. Government information may be public, internal, confidential, or secret.</p>
+<p>II. Leaking confidential or secret information without permission is a serious offense.</p>
+<p>III. Officials may not share private government information with foreign nations, enemies, or unauthorized people.</p>
+<p>IV. A person may report corruption, abuse of power, or unconstitutional actions to the Council without being treated as a leaker.</p>
+<p>V. The Council may create laws defining information levels and punishments for leaks.</p>
+</div></details>
+<details class="section"><summary>C. &quot;Impeachment&quot;</summary><div class="clauses">
+<p>I. Impeachment is the process for removing a President, Vice President, or high official for serious misconduct.</p>
+<p>II. Impeachment proceedings may begin with support from at least 40% of active Council votes.</p>
+<p>III. The accusation must be clearly stated, and the accused official must be given a chance to respond.</p>
+<p>IV. Removal from office requires at least 60% support from active Council votes.</p>
+<p>V. A removed official may be banned from future office if the Council decides the offense was severe.</p>
+</div></details>
+<details class="section"><summary>D. &quot;Grounds for Impeachment&quot;</summary><div class="clauses">
+<p>I. An official may be impeached for violating this Constitution.</p>
+<p>II. An official may be impeached for ignoring Council votes or vetoes.</p>
+<p>III. An official may be impeached for leaking confidential or secret information.</p>
+<p>IV. An official may be impeached for attempting to cancel elections, dissolve the Council, rule without authority, or make themselves permanent ruler.</p>
+<p>V. An official may be impeached for abandoning office or refusing to perform their duties.</p>
+</div></details>
+</article>
+<article class="article-card" id="article-8">
+<div class="article-title-row"><h2>Article VIII. Emergencies and Constitutional Amendments</h2><button class="copy-article" type="button">Copy Article</button></div>
+<details class="section"><summary>A. &quot;Emergency Powers&quot;</summary><div class="clauses">
+<p>I. The President may use emergency powers only when Vatria faces an immediate threat and waiting for normal approval would seriously harm the Federation.</p>
+<p>II. Emergency powers may be used for defense, griefing response, infrastructure protection, diplomatic crisis, or urgent server matters.</p>
+<p>III. Emergency actions must be temporary and limited to what is necessary.</p>
+<p>IV. The Council may review, cancel, or veto emergency actions.</p>
+<p>V. Emergency powers may not be used to cancel elections, change this Constitution, remove Council members permanently, annex or give away territory permanently, or make any person permanent ruler.</p>
+</div></details>
+<details class="section"><summary>B. &quot;Amendments&quot;</summary><div class="clauses">
+<p>I. This Constitution may be amended when necessary.</p>
+<p>II. Amendments may be proposed by the President, Vice President, or any active Council member.</p>
+<p>III. A proposed amendment must clearly state what it changes.</p>
+<p>IV. An amendment passes with at least 60% support from active Council votes.</p>
+<p>V. Passed amendments become part of this Constitution and must be publicly recorded.</p>
+</div></details>
+<details class="section"><summary>C. &quot;Protected Principles&quot;</summary><div class="clauses">
+<p>I. No amendment may make one person permanent ruler of Vatria.</p>
+<p>II. No amendment may remove presidential elections without creating another fair system.</p>
+<p>III. No amendment may give one province more Council votes than another.</p>
+<p>IV. No amendment may remove all limits on the President or Council.</p>
+<p>V. No amendment may abolish the federal nature of Vatria without an extraordinary process approved by the Council.</p>
+</div></details>
+<details class="section"><summary>D. &quot;Interpretation&quot;</summary><div class="clauses">
+<p>I. If this Constitution is unclear, it shall be interpreted in a way that protects Vatria, its provinces, active citizenship, and democratic government.</p>
+<p>II. The Council may interpret unclear parts of this Constitution when necessary.</p>
+<p>III. Interpretations may not create powers that clearly contradict the written Constitution.</p>
+<p>IV. If an interpretation causes serious disagreement, the Council should clarify the issue through amendment or federal law.</p>
+</div></details>
+</article>
+<article class="article-card" id="article-9">
+<div class="article-title-row"><h2>Article IX. Final Principles</h2><button class="copy-article" type="button">Copy Article</button></div>
+<details class="section"><summary>A. &quot;Continuity of Government&quot;</summary><div class="clauses">
+<p>I. The government of Vatria shall continue even if officials become inactive, resign, or are removed.</p>
+<p>II. Empty offices shall be filled according to succession, election, or federal law.</p>
+<p>III. Inactivity shall not be allowed to permanently stop the government.</p>
+<p>IV. Temporary actions taken during confusion or crisis must be reviewed once normal government function returns.</p>
+</div></details>
+<details class="section"><summary>B. &quot;Oath of Office&quot;</summary><div class="clauses">
+<p>I. The President, Vice President, Council members, and high officials may be required to swear or accept an oath of office.</p>
+<p>II. The oath shall require loyalty to Vatria, respect for the Constitution, and fair service to the Federation.</p>
+<p>III. No official shall be required to swear loyalty to another person above the Constitution.</p>
+<p>IV. Breaking the oath may be used as evidence in impeachment or removal proceedings.</p>
+</div></details>
+<details class="section"><summary>C. &quot;Closing Principle&quot;</summary><div class="clauses">
+<p>I. Vatria shall be led by its President, protected by its Council, and founded upon its provinces and citizens.</p>
+<p>II. The President shall lead.</p>
+<p>III. The Council shall restrain.</p>
+<p>IV. The provinces shall endure.</p>
+<p>V. The Constitution shall stand above all.</p>
+</div></details>
+</article>
+</section></main>
+<footer class="site-footer">Vatrian Federation &bull; President leads &bull; Council restrains &bull; Provinces endure</footer>
+<div class="copy-status" id="copyStatus" role="status" aria-live="polite"></div>
+<script>
+const navButtons = [...document.querySelectorAll('.nav-btn')];
+const articles = [...document.querySelectorAll('.article-card')];
+const copyStatus = document.getElementById('copyStatus');
+
+function showStatus(message) {
+  copyStatus.textContent = message;
+  copyStatus.classList.add('is-visible');
+  window.clearTimeout(showStatus.timer);
+  showStatus.timer = window.setTimeout(() => {
+    copyStatus.classList.remove('is-visible');
+  }, 1500);
+}
+
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const helper = document.createElement('textarea');
+  helper.value = text;
+  helper.setAttribute('readonly', '');
+  helper.style.position = 'fixed';
+  helper.style.left = '-9999px';
+  document.body.appendChild(helper);
+  helper.select();
+  document.execCommand('copy');
+  helper.remove();
+}
+
+function plainArticleText(article) {
+  const clone = article.cloneNode(true);
+  clone.querySelectorAll('button').forEach((button) => button.remove());
+  return clone.innerText.trim();
+}
+
+navButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    document.getElementById(button.dataset.target).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+});
+
+document.querySelectorAll('.copy-article').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const article = button.closest('.article-card');
+    await copyText(plainArticleText(article));
+    showStatus('Article copied');
+  });
+});
+
+const observer = new IntersectionObserver((entries) => {
+  const visible = entries
+    .filter((entry) => entry.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+  if (!visible) {
+    return;
+  }
+
+  navButtons.forEach((button) => {
+    button.classList.toggle('is-active', button.dataset.target === visible.target.id);
+  });
+}, {
+  rootMargin: '-18% 0px -70% 0px',
+  threshold: [0, .2, .6]
+});
+
+articles.forEach((article) => observer.observe(article));
+</script>
+</body>
+</html>
